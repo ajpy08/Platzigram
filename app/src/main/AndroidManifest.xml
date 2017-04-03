@@ -32,11 +32,6 @@
             <!-- Con esta instruccion (meta-data) estamos dando el soporte para que tambien funcione en versiones anteriores a lollipop -->
         </activity>
 
-        <activity
-            android:name=".ReferenciaActivity"
-            android:label="@string/title_activity_referencia"
-            android:theme="@style/AppTheme" />
-
         <activity android:name=".view.ContainerActivity">
         android:parentActivityName=".view.ContainerActivity">
         <meta-data
