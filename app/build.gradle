@@ -35,8 +35,11 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:2.1.0' //Para poner circulares las imagenes
     compile 'com.zoonref:simple-view-behavior:1.0' //efecto de arrastre de circulo en perfil
 
-    compile 'com.google.firebase:firebase-core:9.8.0'
+    compile 'com.google.firebase:firebase-core:9.8.0' //estas librerias de firebase me sirvieron para probar las notificaciones en firebase
     compile 'com.google.firebase:firebase-messaging:9.8.0'
+
+    compile 'com.jakewharton:butterknife:8.5.1' // Estas librerias me sirvieron para hacer codigo mas limpio en android studio
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 
     testCompile 'junit:junit:4.12'
 }

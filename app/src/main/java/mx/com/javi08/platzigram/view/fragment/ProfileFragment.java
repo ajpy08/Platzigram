@@ -23,6 +23,8 @@ import mx.com.javi08.platzigram.model.Picture;
 public class ProfileFragment extends Fragment {
 
 
+
+
     public ProfileFragment() {
         // Required empty public constructor
     }

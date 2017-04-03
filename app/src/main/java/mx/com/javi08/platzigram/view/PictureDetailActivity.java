@@ -9,9 +9,14 @@ import android.support.v7.widget.Toolbar;
 import android.transition.Fade;
 import android.view.View;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import mx.com.javi08.platzigram.R;
 
 public class PictureDetailActivity extends AppCompatActivity {
+
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +33,8 @@ public class PictureDetailActivity extends AppCompatActivity {
     }
 
     public void showToolbar(String tittle, Boolean upButton){
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        ButterKnife.bind(this);
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         //para dar soporte de la toolbar a versiones mas antiguas de android las siguientes 3 lineas
         setSupportActionBar(toolbar);

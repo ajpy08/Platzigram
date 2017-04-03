@@ -12,6 +12,9 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import mx.com.javi08.platzigram.R;
 import mx.com.javi08.platzigram.adapter.PictureAdapterRecyclerView;
 import mx.com.javi08.platzigram.model.Picture;
@@ -26,6 +29,8 @@ public class HomeFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @BindView(R.id.pictureRecycler)
+    RecyclerView picturesRecycler;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,6 +38,7 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         showToolbar(getResources().getString(R.string.tab_home), false, view);
+
         RecyclerView picturesRecycler = (RecyclerView) view.findViewById(R.id.pictureRecycler);
 
         //Hasta aqui ya estamos en la zona azul RecyclerView
@@ -40,6 +46,7 @@ public class HomeFragment extends Fragment {
         //Usamos LinearLayoutManager por que nuestro fragment esta en un LinearLayout
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+
 
         picturesRecycler.setLayoutManager(linearLayoutManager);
 
@@ -55,6 +62,9 @@ public class HomeFragment extends Fragment {
         pictures.add(new Picture("http://www.novalandtours.com/images/guide/guilin.jpg", "Uriel Ramírez", "4 días", "3 Me Gusta"));
         pictures.add(new Picture("http://www.enjoyart.com/library/landscapes/tuscanlandscapes/large/Tuscan-Bridge--by-Art-Fronckowiak-.jpg", "Juan Pablo", "3 días", "10 Me Gusta"));
         pictures.add(new Picture("http://www.educationquizzes.com/library/KS3-Geography/river-1-1.jpg", "Anahi Salgado", "2 días", "9 Me Gusta"));
+        pictures.add(new Picture("http://www.enjoyart.com/library/landscapes/tuscanlandscapes/large/Tuscan-Bridge--by-Art-Fronckowiak-.jpg", "Jorge Ruiz", "1 días", "20 Me Gusta"));
+        pictures.add(new Picture("http://www.novalandtours.com/images/guide/guilin.jpg", "Anabel Ortiz", "41 días", "43 Me Gusta"));
+        pictures.add(new Picture("http://www.educationquizzes.com/library/KS3-Geography/river-1-1.jpg", "Aranza Diaz", "21 días", "9 Me Gusta"));
 
         return pictures;
     }
@@ -62,6 +72,7 @@ public class HomeFragment extends Fragment {
     //Este metodo se copio de CreateAccountAcitivity y se modifico ya que no estamos en concepto de Activity si no de fragment
     //Lo que se modifico fue que se agrego un View como parametro
     public void showToolbar(String tittle, Boolean upButton, View view){
+
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
 
         //para dar soporte de la toolbar a versiones mas antiguas de android las siguientes 3 lineas

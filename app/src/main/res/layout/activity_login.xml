@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:background="@drawable/platzigram"
-                android:onClick="onClickLogo" />
+                android:onClick="irPagina" />
 
         </RelativeLayout>
 

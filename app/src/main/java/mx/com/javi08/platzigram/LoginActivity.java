@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import butterknife.OnClick;
 import mx.com.javi08.platzigram.view.ContainerActivity;
 import mx.com.javi08.platzigram.view.CreateAccountActivity;
 
@@ -30,9 +32,19 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClickLogo(View view) {
-        //Uri uriUrl = Uri.parse("http://www.codigojavalibre.com/");
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://platzigram.com/"));
-        startActivity(intent);
+//    public void onClickLogo(View view) {
+//        //Uri uriUrl = Uri.parse("http://www.codigojavalibre.com/");
+//        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://platzigram.com/"));
+//        startActivity(intent);
+//    }
+
+    @OnClick(R.id.logo)
+    public void irPagina(View view) {
+//        if (view.getId() == R.id.logo) {
+
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://platzigram.com/"));
+            startActivity(intent);
+//        }
     }
+
 }

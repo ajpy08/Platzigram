@@ -8,6 +8,8 @@ import android.os.Bundle;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import mx.com.javi08.platzigram.R;
 import mx.com.javi08.platzigram.view.fragment.HomeFragment;
 import mx.com.javi08.platzigram.view.fragment.ProfileFragment;
@@ -15,13 +17,17 @@ import mx.com.javi08.platzigram.view.fragment.SearchFragment;
 
 public class ContainerActivity extends AppCompatActivity {
 
+    @BindView(R.id.bottombar)
+    BottomBar bottombar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_container);
 
+        ButterKnife.bind(this);
+        //BottomBar bottombar = (BottomBar) findViewById(R.id.bottombar);
 
-        BottomBar bottombar = (BottomBar) findViewById(R.id.bottombar);
         // Sirve para definir cual de nuestras tab mostrara por default pasando su id
         bottombar.setDefaultTab(R.id.home);
         // Escuchara y estara atento para cuando le demos un clic al bottombar sepa que mostrar

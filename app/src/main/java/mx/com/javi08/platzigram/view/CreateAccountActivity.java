@@ -4,9 +4,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
+import com.roughike.bottombar.BottomBar;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import mx.com.javi08.platzigram.R;
 
 public class CreateAccountActivity extends AppCompatActivity {
+
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +28,10 @@ public class CreateAccountActivity extends AppCompatActivity {
     }
 
     public void showToolbar(String tittle, Boolean upButton){
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        ButterKnife.bind(this);
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         //para dar soporte de la toolbar a versiones mas antiguas de android las siguientes 3 lineas
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(tittle);
