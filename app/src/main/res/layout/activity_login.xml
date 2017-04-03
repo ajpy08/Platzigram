@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="mx.com.javi08.platzigram.LoginActivity"
+    android:background="@color/colorPrimary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <!--wrap_content: Este componente se muestra lo suficientemente grande como para incluir su contenido solamente.
+        Osea si es un boton que contenga el titulo completo-->
+
+        <!--match_parent: Que cresca al tamaño de su padre si es un boton crecera al alto o ancho de toda la verntana
+        si este es su contenedor-->
+
+        <!-- Es mejor explicar con un ejemplo. Usted tiene una LinearLayout con orientación horizontal y
+        tiene tres ImageViews dentro de ella y quiere estos ImageViews siempre que tomen el mismo espacio.
+        Puede establecer la layout_weight de cada ImageView a 1 y el weightSum en LinearLayout a 3 para lograrlo.
+        Lo bueno es que esto va a funcionar correctamente para cualquier dispositivo, lo que no ocurrirá si se
+        establece la anchura y la altura directamente.  -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.6">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/platzigram"
+                android:onClick="onClickLogo" />
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_horizontal_login">
+
+                <!--android:orientation = pone la alineacion que tendran los objetos en el linearlayout-->
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/EditTextWhite">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_username"
+                        android:inputType="text" />
+                    <!--android:inputType="text" = me sirve para que al oprimir enter no se agrande el TextInputEditText
+                    si no para que salte al siguiente campo de contraseña-->
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/EditTextWhite"
+                    app:passwordToggleEnabled="true">
+
+                    <!--app:passwordToggleEnabled="true" sirve para poner el ojito y visualizar la contraseña-->
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_password"
+                        android:inputType="textPassword"
+                        android:theme="@style/EditTextWhite"
+                        android:imeOptions="actionNext"
+                        android:maxLines="1" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <Button
+                    android:id="@+id/login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_button_login"
+                    android:theme="@style/RaiseButtonDark"
+                    android:onClick="goContainer" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <!--android:gravity establece la gravedad del contenido de la View la que se utiliza.-->
+                    <!--En este caso quiere decir que todo lo que este dentro del relativelayout floatara
+                    al centro del mismo -->
+                    <!--android:layout_gravity la gravedad de la View o Layout en su matriz.-->
+
+                    <TextView
+                        android:id="@+id/dontHaveAccount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dont_have_account"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/textsize_donthaveaccount" />
+
+                    <TextView
+                        android:id="@+id/createHere"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/create_here"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/textsize_donthaveaccount"
+                        android:layout_toRightOf="@id/dontHaveAccount"
+                        android:onClick="goCreateAccount" />
+
+                    <!--android:layout_toRightOf sirve para que el textview se alinie a la derecha del textview-->
+                    <!--con id ¿No tienes cuenta?-->
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="mx.com.javi08.platzigram.view.ContainerActivity">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/bottombar_height" />
+
+    <include layout="@layout/bottombar"></include>
+
+    <!--<TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Este es el activity_container.xml"
+        android:paddingLeft="90dp"
+        android:paddingTop="@dimen/paddingtop_tittleimagedetail"/>
+        -->
+
+</RelativeLayout>
+
+
+
+

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="mx.com.javi08.platzigram.view.fragment.ProfileFragment">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:background="@color/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/colorPrimary"
+            app:statusBarScrim="@color/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="200dp"
+                android:paddingBottom="20dp"
+                android:layout_gravity="center|top"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/username_card"
+                    android:textColor="@android:color/white"
+                    android:textSize="30dp" />
+
+
+            </LinearLayout>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <!--No necesitamos en RecyclerView un Scrolling por que lo hace automaticamente-->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/pictureProfileRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="40dp"
+        tools:listitem="@layout/cardview_picture"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    //Trabajaremos la propiedad behaiviur que es como el comportamiento ya que esta imagen se
+    acomodara del centro a la parte superior
+    // izquierda del layout
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="@dimen/dimen_circleimageprofile"
+        android:layout_height="@dimen/dimen_circleimageprofile"
+        android:src="@drawable/image"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="@dimen/margintop_circleimageprofile"
+        android:elevation="@dimen/elevation_circleimageprofile"
+        app:layout_behavior="com.zoonref.SimpleViewBehavior"
+        app:dependsOn="@+id/appBarProfile"
+        app:dependType="y"
+        app:dependTargetY="@dimen/limitY_circleimage"
+        app:targetX="@dimen/activity_horizontal_margin"
+        app:targetY="@dimen/margintoptoolbar_circleimageprofile"
+        app:targetWidth="@dimen/width_circleimagetoolbar"
+        app:targetHeight="@dimen/width_circleimagetoolbar" />
+
+    <!--app:layout_behavior = ponemos el paquete de la libreria para hacer el comportamiento que la imagen se contraiga-->
+    <!--app:dependsOn="@+id/appBarProfile" = esta imagen de quien depende-->
+    <!--app:dependType="y" = en que eje se va a mover la imagen-->
+    <!--app:dependTargetY = el limite de hasta donde queremos que se mueva esta imagen -->
+    <!--app:targetX= Una vez que la imagen ya se posiciono cuanto margen le dejaremos en X-->
+    <!--app:targetY= Cuanto queremos que suba-->
+    <!--app:targetWidth= De que ancho va a quedar la imagen-->
+    <!--app:targetHeight= De que alto quedara la imagen -->
+
+
+    <!--Este textview depende de la imagen-->
+    <TextView
+        android:id="@+id/usernameToolbarProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="?attr/actionBarSize"
+        android:text="@string/username_card"
+        android:textSize="@dimen/textsize_usernametoolbarprofile"
+        android:elevation="10dp"
+        android:layout_marginLeft="@dimen/marginleft_usernametoolbarprofile"
+        android:layout_marginTop="@dimen/margintop_usernametoolbarprofile"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/white"
+        android:alpha="0"
+        app:layout_behavior="com.zoonref.SimpleViewBehavior"
+        app:dependsOn="@+id/appBarProfile"
+        app:dependType="y"
+        app:dependTargetY="@dimen/limitY_usernametoolbarprofile"
+        app:targetY="@dimen/margintoptargety_usernametoolbarprofile"
+        app:targetAlpha="1" />
+
+    <!-- Los Alpha casi siempre significara la cantidad de transparencia que queremos que tengan los elementos-->
+
+</android.support.design.widget.CoordinatorLayout>
+
+

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:serviceandroid="http://schemas.android.com/apk/res-auto"
+    xmlns:actionandroid="http://schemas.android.com/tools"
+    package="mx.com.javi08.platzigram">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".view.CreateAccountActivity">
+            <!--Agregamos esta linea para decirle quien sera su padre para que al oprimir up en el toolbar se dirija ahi. -->
+            android:parentActivityName=".LoginActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoginActivity" />
+            <!-- Con esta instruccion (meta-data) estamos dando el soporte para que tambien funcione en versiones anteriores a lollipop -->
+        </activity>
+
+        <activity
+            android:name=".ReferenciaActivity"
+            android:label="@string/title_activity_referencia"
+            android:theme="@style/AppTheme" />
+
+        <activity android:name=".view.ContainerActivity">
+        android:parentActivityName=".view.ContainerActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".view.ContainerActivity" />
+
+            </activity>
+
+        <activity android:name=".view.PictureDetailActivity">
+            <!--Agregamos esta linea para decirle quien sera su padre para que al oprimir up en el toolbar se dirija ahi.-->
+             android:parentActivityName=".view.ContainerActivity">
+             <!-- Con esta instruccion (meta-data) estamos dando el soporte para que tambien funcione en versiones anteriores a lollipop -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.ContainerActivity" />
+        </activity>
+
+        <!--
+            Defining Services
+        -->
+        <service
+            android:name=".MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <!--<service-->
+            <!--android:name=".MyFirebaseInstanceIDService">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>-->
+            <!--</intent-filter>-->
+        <!--</service>-->
+    </application>
+
+</manifest>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Para usar el CardView necesitamos agregar a build.gradle(Module:app) la libreria de esta forma
+    compile 'com.android.support:cardview-v7:25.2.0' y dar sincronizar para que descargue la libreria.
+Tambien necesitamos agregar las espacios de nombres para poder usar android: y cardview: situandonos antes del final
+con ALT + Enter-->
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:id="@+id/prictureCard"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/height_cardview"
+    cardview:cardCornerRadius="@dimen/cornerradius_cardview"
+    card_view:cardElevation="@dimen/elevation_cardview"
+    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    android:layout_marginLeft="@dimen/marginleftright_cardview"
+    android:layout_marginRight="@dimen/marginleftright_cardview"
+    card_view:cardUseCompatPadding="true">
+
+    <!--FrameLayout pone los elementos uno encima de otros como si fueran capas-->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+
+        >
+
+        <ImageView
+            android:id="@+id/pictureCard"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_cardview"
+            android:background="@drawable/image"
+            android:scaleType="centerCrop"
+            android:transitionName="@string/transitionname_picture"
+
+            />
+        <!--Si la imagen viene muy grande con la propiedad android:scaleType="centerCrop" nos aseguramos que la imagen no se estire si no esta
+        propiedad va ajustandola.-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="bottom"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:background="@color/backgroundtext_card">
+
+            <TextView
+                android:id="@+id/userNameCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/username_card"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/textsize_username_card" />
+
+            <!--Los tamaños de textos deben ser en sps y debemos declararlos en @dimen/xxx-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/firstWord"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/firstword_card"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/firstword_textsize_card" />
+
+                <TextView
+                    android:id="@+id/timeCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/timecard_card"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/firstword_textsize_card"
+                    android:layout_marginLeft="@dimen/timecard_marginleft_card" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/like_margintop_card">
+
+                <CheckBox
+                    android:id="@+id/likeCheckCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/checkbox_selector" />
+
+                <!--Para crear el cambio del checkbox cuando esta checked y cuando no creamos un nuevo Drawable resource file
+                donde asignamos los 3 posibles estados del checkbox al selector
+
+                <item android:drawable="@drawable/heart"
+                    android:state_checked="false"></item>
+                <item android:drawable="@drawable/heart_full"
+                    android:state_checked="true"></item>
+                <item android:drawable="@drawable/heart"></item> -->
+
+                <TextView
+                    android:id="@+id/likeNumberCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/likenumbercard_card"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/firstword_textsize_card"
+                    android:layout_marginLeft="@dimen/timecard_marginleft_card" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</android.support.v7.widget.CardView>
