@@ -25,7 +25,6 @@
             android:layout_height="match_parent"
             android:padding="@dimen/padding_recyclerviewsearch"
             tools:listitem="@layout/cardview_picture"
-
             >
 
         </android.support.v7.widget.RecyclerView>

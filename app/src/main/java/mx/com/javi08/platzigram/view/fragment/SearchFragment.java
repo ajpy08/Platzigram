@@ -36,8 +36,6 @@ public class SearchFragment extends Fragment {
         RecyclerView picturesRecycler = (RecyclerView) view.findViewById(R.id.searchRecycler);
 
 
-
-
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2,GridLayoutManager.VERTICAL,false);
         picturesRecycler.setHasFixedSize(true);
 

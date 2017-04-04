@@ -39,7 +39,8 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         showToolbar(getResources().getString(R.string.tab_home), false, view);
 
-        RecyclerView picturesRecycler = (RecyclerView) view.findViewById(R.id.pictureRecycler);
+        ButterKnife.bind(this, view);
+        //RecyclerView picturesRecycler = (RecyclerView) view.findViewById(R.id.pictureRecycler);
 
         //Hasta aqui ya estamos en la zona azul RecyclerView
         // Pasamos a la zona verde  Layout
@@ -62,18 +63,25 @@ public class HomeFragment extends Fragment {
         pictures.add(new Picture("http://www.novalandtours.com/images/guide/guilin.jpg", "Uriel Ramírez", "4 días", "3 Me Gusta"));
         pictures.add(new Picture("http://www.enjoyart.com/library/landscapes/tuscanlandscapes/large/Tuscan-Bridge--by-Art-Fronckowiak-.jpg", "Juan Pablo", "3 días", "10 Me Gusta"));
         pictures.add(new Picture("http://www.educationquizzes.com/library/KS3-Geography/river-1-1.jpg", "Anahi Salgado", "2 días", "9 Me Gusta"));
-        pictures.add(new Picture("http://www.enjoyart.com/library/landscapes/tuscanlandscapes/large/Tuscan-Bridge--by-Art-Fronckowiak-.jpg", "Jorge Ruiz", "1 días", "20 Me Gusta"));
-        pictures.add(new Picture("http://www.novalandtours.com/images/guide/guilin.jpg", "Anabel Ortiz", "41 días", "43 Me Gusta"));
-        pictures.add(new Picture("http://www.educationquizzes.com/library/KS3-Geography/river-1-1.jpg", "Aranza Diaz", "21 días", "9 Me Gusta"));
+        pictures.add(new Picture("http://www.enjoyart.com/library/landscapes/tuscanlandscapes/large/Tuscan-Bridge--by-Art-Fronckowiak-.jpg", "Casandra Moo", "3 días", "10 Me Gusta"));
+        pictures.add(new Picture("http://www.novalandtours.com/images/guide/guilin.jpg", "Javier Puc", "4 días", "25 Me Gusta"));
+        pictures.add(new Picture("http://www.educationquizzes.com/library/KS3-Geography/river-1-1.jpg", "Sinai Lopez", "12 días", "9 Me Gusta"));
+        pictures.add(new Picture("http://www.enjoyart.com/library/landscapes/tuscanlandscapes/large/Tuscan-Bridge--by-Art-Fronckowiak-.jpg", "Arely Puc", "30 días", "20 Me Gusta"));
+        pictures.add(new Picture("http://www.educationquizzes.com/library/KS3-Geography/river-1-1.jpg", "Laura Ortiz", "7 días", "19 Me Gusta"));
+        pictures.add(new Picture("http://www.enjoyart.com/library/landscapes/tuscanlandscapes/large/Tuscan-Bridge--by-Art-Fronckowiak-.jpg", "Paola Diaz", "6 días", "10 Me Gusta"));
 
         return pictures;
     }
+
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
 
     //Este metodo se copio de CreateAccountAcitivity y se modifico ya que no estamos en concepto de Activity si no de fragment
     //Lo que se modifico fue que se agrego un View como parametro
     public void showToolbar(String tittle, Boolean upButton, View view){
 
-        Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+        ButterKnife.bind(this, view);
+        //Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
 
         //para dar soporte de la toolbar a versiones mas antiguas de android las siguientes 3 lineas
         //Se agrego ((AppCompatActivity) getActivity()). para castearlo y traer un elemento igualito al que estoy trayendo en el container
